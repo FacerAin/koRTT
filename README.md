@@ -1,2 +1,2 @@
 
-Round-trip translation tool for Korean data augmentation
+Round-trip translation(RTT) tool for Korean data augmentation
