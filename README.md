@@ -11,7 +11,8 @@ pip install kortt
 
 ### Usage
 사용에 앞서 각 모드별로 **API Key 발급**이 필요합니다.  
-지원하는 모드는 아래 Surppoted modes를 참고해주세요.
+지원하는 모드는 아래 Surppoted modes를 참고해주세요.  
+⚠️  **발급받은 API 키는 공개된 파일에 노출되지 않도록 주의해주세요**
 
 ```
 from kortt import Generator
