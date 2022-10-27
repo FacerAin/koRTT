@@ -1,5 +1,6 @@
 import urllib.request
 import json
+from googletrans import Translator
 
 
 class Generator:
@@ -8,18 +9,28 @@ class Generator:
         self.client_id = client_id
         self.secret_id = secret_id
 
-        self.compatible_modes = ["papago"]
+        self.compatible_modes = ["papago", "google"]
+        self.google_translator = Translator()
 
         if self.mode not in self.compatible_modes:
-            raise Exception("Choose the correct mode (Ex. papago)")
+            raise Exception("Choose the correct mode (Ex. papago, google)")
 
     def generate(self, text):
         if not text:
             raise Exception("You must input in the text")
 
         if self.mode == "papago":
+            if not self.client_id or not self.secret_id:
+                raise Exception("You must input in the key for using papago mode")
             tgt_text = self.get_papago_request(text, src="ko", tgt="en")
             generate_text = self.get_papago_request(tgt_text, src="en", tgt="ko")
+            return generate_text
+
+        elif self.mode == "google":
+            tgt_text = self.google_translator.translate(text, src="ko", dest="en").text
+            generate_text = self.google_translator.translate(
+                tgt_text, src="en", dest="ko"
+            ).text
             return generate_text
 
     def get_papago_request(self, text, src="ko", tgt="en"):

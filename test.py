@@ -1,8 +1,7 @@
 from kortt import Generator
 
-
 generator = Generator(
-    mode="papago", client_id="YOURCLIENTID", secret_id="YOURSECERETID"
+    mode="google", client_id="YOURCLIENTID", secret_id="YOURSECERETID"
 )
 
 examples = [

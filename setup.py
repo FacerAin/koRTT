@@ -11,7 +11,7 @@ setup(
     packages=find_packages(exclude=["test"]),
     long_description=open("README.md", encoding="utf-8").read(),
     long_description_content_type="text/markdown",
-    install_requires=[""],
+    install_requires=["googletrans==4.0.0rc1"],
     python_requires=">=3",
     license="MIT",
 )
